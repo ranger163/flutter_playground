@@ -19,11 +19,14 @@ class MyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Hello answer 2'),
             ),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: answerQuestion,
+              onPressed: () {
+                //...
+                print('Hello answer 3');
+              },
             ),
           ],
         ),
@@ -31,5 +34,5 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  void answerQuestion() => print('Hello answer');
+  void answerQuestion() => print('Hello answer 1');
 }
