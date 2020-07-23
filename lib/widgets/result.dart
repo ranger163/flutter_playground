@@ -5,11 +5,24 @@ class Result extends StatelessWidget {
 
   Result(this.totalScore);
 
+  String get resultMessage {
+    String finalResult;
+    if (totalScore <= 8)
+      finalResult = 'Too bad dude!';
+    else if (totalScore <= 18)
+      finalResult = 'Not bad dude!';
+    else if (totalScore <= 80)
+      finalResult = 'Hooray ya Mohamed';
+    else
+      finalResult = 'El3b ya Samak';
+    return finalResult;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'Hooray!!\n\nYour is $totalScore.',
+        resultMessage,
         textAlign: TextAlign.center,
       ),
     );
