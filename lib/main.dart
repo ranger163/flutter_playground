@@ -12,39 +12,45 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  final questions = const [
+    {
+      'questionText': 'What\'s your favourite color?',
+      'answers': ['Green', 'Blue', 'Red', 'Black']
+    },
+    {
+      'questionText': 'What\'s your favourite animal?',
+      'answers': ['Lion', 'Cat', 'Dog', 'Rabbit']
+    },
+    {
+      'questionText': 'who\'s your favourite developer?',
+      'answers': ['Nassar', 'Nassar', 'Nassar', 'Nassar']
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
-    const questions = const [
-      {
-        'questionText': 'What\'s your favourite color?',
-        'answers': ['Green', 'Blue', 'Red', 'Black']
-      },
-      {
-        'questionText': 'What\'s your favourite animal?',
-        'answers': ['Lion', 'Cat', 'Dog', 'Rabbit']
-      },
-      {
-        'questionText': 'who\'s your favourite developer?',
-        'answers': ['Nassar', 'Nassar', 'Nassar', 'Nassar']
-      }
-    ];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Hello!'),
         ),
-        body: Column(
-          children: [
-            Question(
-              questions[_questionIndex]['questionText'],
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) => Answer(answer, _answerQuestion))
-                .toList()
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(
+                    questions[_questionIndex]['questionText'],
+                  ),
+                  ...(questions[_questionIndex]['answers'] as List<String>)
+                      .map((answer) => Answer(answer, _answerQuestion))
+                      .toList()
+                ],
+              )
+            : Center(
+                child: Text(
+                  'Hooray!!\nYou answered all questions.',
+                  textAlign: TextAlign.center,
+                ),
+              ),
       ),
     );
   }
@@ -53,6 +59,5 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex);
   }
 }
