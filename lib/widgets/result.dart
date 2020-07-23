@@ -23,6 +23,10 @@ class Result extends StatelessWidget {
     return Center(
       child: Text(
         resultMessage,
+        style: TextStyle(
+          fontSize: 24,
+          fontStyle: FontStyle.italic,
+        ),
         textAlign: TextAlign.center,
       ),
     );
