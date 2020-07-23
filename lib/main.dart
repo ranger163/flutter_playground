@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   var questionIndex = 0;
 
   @override
@@ -42,7 +47,9 @@ class MyApp extends StatelessWidget {
   }
 
   void answerQuestion() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
     print(questionIndex);
   }
 }
