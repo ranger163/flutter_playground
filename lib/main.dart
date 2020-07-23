@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            Answer('Answer 1'),
-            Answer('Answer 2'),
-            Answer('Answer 3'),
+            Answer('Answer 1', _answerQuestion),
+            Answer('Answer 2', _answerQuestion),
+            Answer('Answer 3', _answerQuestion),
           ],
         ),
       ),
