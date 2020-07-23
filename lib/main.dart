@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/widgets/answer.dart';
 
 import './widgets/question.dart';
 
@@ -29,21 +30,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: _answerQuestion,
-            ),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Hello answer 2'),
-            ),
-            RaisedButton(
-              child: Text('Answer 3'),
-              onPressed: () {
-                //...
-                print('Hello answer 3');
-              },
-            ),
+            Answer('Answer 1'),
+            Answer('Answer 2'),
+            Answer('Answer 3'),
           ],
         ),
       ),
