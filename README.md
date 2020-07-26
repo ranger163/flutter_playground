@@ -1,6 +1,6 @@
-# flutter_playground
+# quiz_app
 
-A playground Flutter project.
+A quiz app Flutter project.
 
 ## Getting Started
 
